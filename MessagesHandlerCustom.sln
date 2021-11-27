@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessagesHandlerCustom.App", "MessagesHandlerCustom.App\MessagesHandlerCustom.App.csproj", "{7799A9B0-FA17-4C41-9952-E9C26F16FCA5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessagesHandlerCustom.Application", "MessagesHandlerCustom.Application\MessagesHandlerCustom.Application.csproj", "{BFB4CDDE-7A19-4964-B08B-D215C2246946}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessagesHandlerCustom.Domain", "MessagesHandlerCustom.Domain\MessagesHandlerCustom.Domain.csproj", "{FDBA7432-E92D-4D1B-8A0F-51951BB9C031}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessagesHandlerCustom.Infrastructure", "MessagesHandlerCustom.Infrastructure\MessagesHandlerCustom.Infrastructure.csproj", "{77F89D1D-DBB3-4938-B4B8-D15EF30B6D21}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessagesHandlerCustom.Utils", "MessagesHandlerCustom.Utils\MessagesHandlerCustom.Utils.csproj", "{0F866962-C007-4612-A101-C99464766660}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7799A9B0-FA17-4C41-9952-E9C26F16FCA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7799A9B0-FA17-4C41-9952-E9C26F16FCA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7799A9B0-FA17-4C41-9952-E9C26F16FCA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7799A9B0-FA17-4C41-9952-E9C26F16FCA5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BFB4CDDE-7A19-4964-B08B-D215C2246946}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BFB4CDDE-7A19-4964-B08B-D215C2246946}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BFB4CDDE-7A19-4964-B08B-D215C2246946}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BFB4CDDE-7A19-4964-B08B-D215C2246946}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FDBA7432-E92D-4D1B-8A0F-51951BB9C031}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FDBA7432-E92D-4D1B-8A0F-51951BB9C031}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FDBA7432-E92D-4D1B-8A0F-51951BB9C031}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FDBA7432-E92D-4D1B-8A0F-51951BB9C031}.Release|Any CPU.Build.0 = Release|Any CPU
+		{77F89D1D-DBB3-4938-B4B8-D15EF30B6D21}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{77F89D1D-DBB3-4938-B4B8-D15EF30B6D21}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{77F89D1D-DBB3-4938-B4B8-D15EF30B6D21}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{77F89D1D-DBB3-4938-B4B8-D15EF30B6D21}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0F866962-C007-4612-A101-C99464766660}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0F866962-C007-4612-A101-C99464766660}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0F866962-C007-4612-A101-C99464766660}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0F866962-C007-4612-A101-C99464766660}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
