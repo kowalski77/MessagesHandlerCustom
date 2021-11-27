@@ -1,14 +1,25 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessagesHandlerCustom.App", "MessagesHandlerCustom.App\MessagesHandlerCustom.App.csproj", "{7799A9B0-FA17-4C41-9952-E9C26F16FCA5}"
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31912.275
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessagesHandlerCustom.App", "MessagesHandlerCustom.App\MessagesHandlerCustom.App.csproj", "{7799A9B0-FA17-4C41-9952-E9C26F16FCA5}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessagesHandlerCustom.Application", "MessagesHandlerCustom.Application\MessagesHandlerCustom.Application.csproj", "{BFB4CDDE-7A19-4964-B08B-D215C2246946}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessagesHandlerCustom.Application", "MessagesHandlerCustom.Application\MessagesHandlerCustom.Application.csproj", "{BFB4CDDE-7A19-4964-B08B-D215C2246946}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessagesHandlerCustom.Domain", "MessagesHandlerCustom.Domain\MessagesHandlerCustom.Domain.csproj", "{FDBA7432-E92D-4D1B-8A0F-51951BB9C031}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessagesHandlerCustom.Domain", "MessagesHandlerCustom.Domain\MessagesHandlerCustom.Domain.csproj", "{FDBA7432-E92D-4D1B-8A0F-51951BB9C031}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessagesHandlerCustom.Infrastructure", "MessagesHandlerCustom.Infrastructure\MessagesHandlerCustom.Infrastructure.csproj", "{77F89D1D-DBB3-4938-B4B8-D15EF30B6D21}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessagesHandlerCustom.Infrastructure", "MessagesHandlerCustom.Infrastructure\MessagesHandlerCustom.Infrastructure.csproj", "{77F89D1D-DBB3-4938-B4B8-D15EF30B6D21}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessagesHandlerCustom.Utils", "MessagesHandlerCustom.Utils\MessagesHandlerCustom.Utils.csproj", "{0F866962-C007-4612-A101-C99464766660}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessagesHandlerCustom.Utils", "MessagesHandlerCustom.Utils\MessagesHandlerCustom.Utils.csproj", "{0F866962-C007-4612-A101-C99464766660}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestHarness", "TestHarness", "{43FF6CE6-C68D-4AED-A4FC-64B1DAD431A9}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{2B4CBC82-1BB0-4861-9952-48D3B38E905D}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F7CFD562-6C29-45C5-8672-C18F58F56C86}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessagesHandlerCustom.PerformanceTests", "MessagesHandlerCustom.PerformanceTests\MessagesHandlerCustom.PerformanceTests.csproj", "{E1BC0090-6C7A-4FBD-A5B9-9E242B94A18E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -36,5 +47,23 @@ Global
 		{0F866962-C007-4612-A101-C99464766660}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0F866962-C007-4612-A101-C99464766660}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0F866962-C007-4612-A101-C99464766660}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E1BC0090-6C7A-4FBD-A5B9-9E242B94A18E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E1BC0090-6C7A-4FBD-A5B9-9E242B94A18E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E1BC0090-6C7A-4FBD-A5B9-9E242B94A18E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E1BC0090-6C7A-4FBD-A5B9-9E242B94A18E}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{7799A9B0-FA17-4C41-9952-E9C26F16FCA5} = {43FF6CE6-C68D-4AED-A4FC-64B1DAD431A9}
+		{BFB4CDDE-7A19-4964-B08B-D215C2246946} = {43FF6CE6-C68D-4AED-A4FC-64B1DAD431A9}
+		{FDBA7432-E92D-4D1B-8A0F-51951BB9C031} = {43FF6CE6-C68D-4AED-A4FC-64B1DAD431A9}
+		{77F89D1D-DBB3-4938-B4B8-D15EF30B6D21} = {43FF6CE6-C68D-4AED-A4FC-64B1DAD431A9}
+		{0F866962-C007-4612-A101-C99464766660} = {2B4CBC82-1BB0-4861-9952-48D3B38E905D}
+		{E1BC0090-6C7A-4FBD-A5B9-9E242B94A18E} = {F7CFD562-6C29-45C5-8672-C18F58F56C86}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {3950000A-2394-40ED-A908-53F518209EC5}
 	EndGlobalSection
 EndGlobal
