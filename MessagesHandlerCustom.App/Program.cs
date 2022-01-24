@@ -26,11 +26,7 @@ void ConfigureServices()
 {
     var services = new ServiceCollection();
 
-    services.AddMessageDispatcher(opt =>
-    {
-        opt.DispatcherAssembly = typeof(EnrollStudentCommandHandler).Assembly;
-    });
-
+    services.AddMessagesDispatcherFromAssembly<EnrollStudentCommandHandler>();
     services.AddScoped<IStudentRepository, StudentRepository>();
     services.AddScoped<ICourseRepository, CourseRepository>();
     services.AddScoped<Endpoints>();

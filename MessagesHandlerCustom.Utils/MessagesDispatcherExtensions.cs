@@ -5,25 +5,16 @@ namespace MessagesHandlerCustom.Utils;
 
 public static class MessagesDispatcherExtensions
 {
-    public static IServiceCollection AddMessageDispatcher(
-        this IServiceCollection services,
-        Action<MessageDispatcherOptions> options)
+    public static IServiceCollection AddMessagesDispatcherFromAssembly<T>(
+        this IServiceCollection services) where T : class
     {
-        var messageDispatcherOptions = new MessageDispatcherOptions();
-        options.Invoke(messageDispatcherOptions);
-
-        if (messageDispatcherOptions.DispatcherAssembly is not null)
+        if (services is null)
         {
-            RegisterDispatchersFromAssembly(services, messageDispatcherOptions.DispatcherAssembly);
+            throw new ArgumentNullException(nameof(services));
         }
 
-        AddMessageDispatcher(services);
+        RegisterDispatchersFromAssembly(services, typeof(T).Assembly);
 
-        return services;
-    }
-
-    public static IServiceCollection AddMessageDispatcher(this IServiceCollection services)
-    {
         services.AddScoped<MessagesDispatcher>();
 
         return services;

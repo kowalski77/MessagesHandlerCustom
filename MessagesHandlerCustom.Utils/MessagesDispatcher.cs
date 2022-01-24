@@ -11,15 +11,13 @@ public class MessagesDispatcher
         this.serviceProvider = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));
     }
 
-    public async Task<Result> DispatchAsync(ICommand command)
+    public async Task<Result> DispatchAsync<TCommand>(TCommand command)
+        where TCommand : ICommand
     {
-        var commandHandlerType = typeof(ICommandHandler<>);
-        var commandType = command.GetType();
+        ArgumentNullException.ThrowIfNull(command);
 
-        var handlerType = commandHandlerType.MakeGenericType(commandType);
-
-        dynamic handler = this.serviceProvider.GetRequiredService(handlerType);
-        var result = await handler.Handle((dynamic)command);
+        var handler = this.serviceProvider.GetRequiredService<ICommandHandler<TCommand>>();
+        var result = await handler.Handle(command);
 
         return result;
     }
