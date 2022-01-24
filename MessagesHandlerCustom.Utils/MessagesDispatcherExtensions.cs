@@ -8,10 +8,7 @@ public static class MessagesDispatcherExtensions
     public static IServiceCollection AddMessagesDispatcherFromAssembly<T>(
         this IServiceCollection services) where T : class
     {
-        if (services is null)
-        {
-            throw new ArgumentNullException(nameof(services));
-        }
+        ArgumentNullException.ThrowIfNull(services);
 
         RegisterDispatchersFromAssembly(services, typeof(T).Assembly);
 

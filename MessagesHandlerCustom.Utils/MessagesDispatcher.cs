@@ -17,7 +17,7 @@ public class MessagesDispatcher
         ArgumentNullException.ThrowIfNull(command);
 
         var handler = this.serviceProvider.GetRequiredService<ICommandHandler<TCommand>>();
-        var result = await handler.Handle(command);
+        var result = await handler.Handle(command).ConfigureAwait(false);
 
         return result;
     }
