@@ -10,28 +10,30 @@ namespace MessagesHandlerCustom.PerformanceTests;
 [MemoryDiagnoser]
 public class HandlerBenchmark
 {
-    private IServiceProvider? serviceProvider;
-    private readonly MediatorTestCommand testCommand = new()
-    {
-        Id = Guid.NewGuid(),
-        Name = "New product name"
-    };
     private readonly CustomTestCommand customTestCommand = new()
     {
         Id = Guid.NewGuid(),
         Name = "New product name"
     };
 
+    private readonly MediatorTestCommand testCommand = new()
+    {
+        Id = Guid.NewGuid(),
+        Name = "New product name"
+    };
+
+    private IServiceProvider? serviceProvider;
+
     public HandlerBenchmark()
     {
         Console.WriteLine("Configure services...");
-        ConfigureServices();
+        this.ConfigureServices();
     }
 
     [Benchmark]
     public async Task<Result> MediatorNuget()
     {
-        using var scope = serviceProvider!.CreateScope();
+        using var scope = this.serviceProvider!.CreateScope();
         var mediator = scope.ServiceProvider.GetRequiredService<IMediator>();
 
         var result = await mediator.Send(this.testCommand);
@@ -42,7 +44,7 @@ public class HandlerBenchmark
     [Benchmark]
     public async Task<Result> CustomDispatcher()
     {
-        using var scope = serviceProvider!.CreateScope();
+        using var scope = this.serviceProvider!.CreateScope();
         var messagesDispatcher = scope.ServiceProvider.GetRequiredService<MessagesDispatcher>();
 
         var result = await messagesDispatcher.DispatchAsync(this.customTestCommand);
@@ -70,17 +72,14 @@ public class HandlerBenchmark
 
         services.AddScoped<IProductRepository, ProductRepository>();
 
-        // MeaditR
+        // MediatR
         services.AddScoped<IMediator, Mediator>();
         _ = services.AddTransient<ServiceFactory>(p => p.GetService!);
         services.AddScoped<IRequestHandler<MediatorTestCommand, Result>, MediatorTestCommandHandler>();
 
         // Custom Dispatcher
-        services.AddMessageDispatcher(opt =>
-        {
-            opt.DispatcherAssembly = typeof(MediatorTestCommandHandler).Assembly;
-        });
+        services.AddMessageDispatcher(opt => { opt.DispatcherAssembly = typeof(MediatorTestCommandHandler).Assembly; });
 
-        serviceProvider = services.BuildServiceProvider(true);
+        this.serviceProvider = services.BuildServiceProvider(true);
     }
 }

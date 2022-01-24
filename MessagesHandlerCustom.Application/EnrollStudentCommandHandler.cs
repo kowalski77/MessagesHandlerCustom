@@ -16,11 +16,17 @@ public class EnrollStudentCommandHandler : ICommandHandler<EnrollStudentCommand>
 
     public async Task<Result> Handle(EnrollStudentCommand command)
     {
-        Student? student = await studentRepository.GetAsync(command.StudentId);
-        if (student is null) return Result.Fail("Student not found");
+        var student = await this.studentRepository.GetAsync(command.StudentId);
+        if (student is null)
+        {
+            return Result.Fail("Student not found");
+        }
 
-        Course? course = await courseRepository.GetAsync(command.CourseId);
-        if (course is null) return Result.Fail("Course not found");
+        var course = await this.courseRepository.GetAsync(command.CourseId);
+        if (course is null)
+        {
+            return Result.Fail("Course not found");
+        }
 
         student.Enroll(course);
 

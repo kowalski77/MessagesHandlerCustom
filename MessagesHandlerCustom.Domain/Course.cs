@@ -4,8 +4,8 @@ public class Course
 {
     public Course(Guid id, string name)
     {
-        Id = id;
-        Name = name;
+        this.Id = id;
+        this.Name = name;
     }
 
     public Guid Id { get; protected set; }
@@ -16,6 +16,6 @@ public class Course
 
     public void ChangeName(string name)
     {
-        Name = name;
+        this.Name = name;
     }
 }

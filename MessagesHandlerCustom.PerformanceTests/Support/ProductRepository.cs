@@ -2,9 +2,9 @@
 
 public class ProductRepository : IProductRepository
 {
-    public Task<Product?> GetAsync(Guid id)
+    public ValueTask<Product> GetAsync(Guid id)
     {
-        return Task.FromResult<Product?>(new Product
+        return new ValueTask<Product>(new Product
         {
             Id = id,
             Name = "Product 1"

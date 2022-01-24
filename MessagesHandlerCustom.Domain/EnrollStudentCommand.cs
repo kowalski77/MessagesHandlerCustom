@@ -6,8 +6,8 @@ public class EnrollStudentCommand : ICommand
 {
     public EnrollStudentCommand(Guid studentId, Guid courseId)
     {
-        StudentId = studentId;
-        CourseId = courseId;
+        this.StudentId = studentId;
+        this.CourseId = courseId;
     }
 
     public Guid StudentId { get; }

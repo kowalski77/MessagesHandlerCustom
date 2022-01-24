@@ -15,12 +15,7 @@ public class MediatorTestCommandHandler : IRequestHandler<MediatorTestCommand, R
 
     public async Task<Result> Handle(MediatorTestCommand request, CancellationToken cancellationToken)
     {
-        var product = await productRepository.GetAsync(request.Id);
-        if (product is null)
-        {
-            return Result.Fail("whatever...");
-        }
-
+        var product = await this.productRepository.GetAsync(request.Id);
         product.Name = request.Name;
 
         return Result.Ok();

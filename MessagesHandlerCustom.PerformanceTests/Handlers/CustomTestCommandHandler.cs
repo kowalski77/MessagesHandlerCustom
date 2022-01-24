@@ -14,12 +14,7 @@ public class CustomTestCommandHandler : ICommandHandler<CustomTestCommand>
 
     public async Task<Result> Handle(CustomTestCommand command)
     {
-        var product = await productRepository.GetAsync(command.Id);
-        if (product is null)
-        {
-            return Result.Fail("whatever...");
-        }
-
+        var product = await this.productRepository.GetAsync(command.Id);
         product.Name = command.Name;
 
         return Result.Ok();

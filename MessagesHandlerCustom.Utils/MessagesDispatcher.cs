@@ -17,8 +17,8 @@ public class MessagesDispatcher
         var commandType = command.GetType();
 
         var handlerType = commandHandlerType.MakeGenericType(commandType);
-        
-        dynamic handler = serviceProvider.GetRequiredService(handlerType);
+
+        dynamic handler = this.serviceProvider.GetRequiredService(handlerType);
         var result = await handler.Handle((dynamic)command);
 
         return result;

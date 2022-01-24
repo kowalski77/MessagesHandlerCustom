@@ -1,7 +1,4 @@
-﻿using MessagesHandlerCustom.Domain;
-using MessagesHandlerCustom.Utils;
-
-namespace MessagesHandlerCustom.App;
+﻿namespace MessagesHandlerCustom.App;
 
 public class Endpoints
 {
@@ -15,7 +12,7 @@ public class Endpoints
     public async Task EnrollStudentAsync(EnrollStudentDto enrollStudentDto)
     {
         var command = new EnrollStudentCommand(enrollStudentDto.StudentId, enrollStudentDto.CourseId);
-        var result = await messagesDispatcher.DispatchAsync(command);
+        var result = await this.messagesDispatcher.DispatchAsync(command);
 
         Console.WriteLine($"Success: {result.Success} - {result.Message}");
     }
