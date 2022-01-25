@@ -31,7 +31,7 @@ public class HandlerBenchmark
     }
 
     [Benchmark]
-    public async Task<Result> MediatorNuget()
+    public async Task<Result> MediatRNuget()
     {
         using var scope = this.serviceProvider!.CreateScope();
         var mediator = scope.ServiceProvider.GetRequiredService<IMediator>();
