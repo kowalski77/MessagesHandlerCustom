@@ -2,11 +2,11 @@
 
 public class Endpoints
 {
-    private readonly MessagesDispatcher messagesDispatcher;
+    private readonly IMessagesDispatcher messagesDispatcher;
 
-    public Endpoints(MessagesDispatcher messagesDispatcher)
+    public Endpoints(IMessagesDispatcher messagesDispatcher)
     {
-        this.messagesDispatcher = messagesDispatcher;
+        this.messagesDispatcher = messagesDispatcher ?? throw new ArgumentNullException(nameof(messagesDispatcher));
     }
 
     public async Task EnrollStudentAsync(EnrollStudentDto enrollStudentDto)

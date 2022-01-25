@@ -45,7 +45,7 @@ public class HandlerBenchmark
     public async Task<Result> CustomDispatcher()
     {
         using var scope = this.serviceProvider!.CreateScope();
-        var messagesDispatcher = scope.ServiceProvider.GetRequiredService<MessagesDispatcher>();
+        var messagesDispatcher = scope.ServiceProvider.GetRequiredService<IMessagesDispatcher>();
 
         var result = await messagesDispatcher.DispatchAsync(this.customTestCommand);
 

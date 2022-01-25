@@ -1,6 +1,6 @@
 ﻿namespace MessagesHandlerCustom.Utils;
 
-public class MessagesDispatcher
+public class MessagesDispatcher : IMessagesDispatcher
 {
     private readonly IServiceProvider serviceProvider;
 
