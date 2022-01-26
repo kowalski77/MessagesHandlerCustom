@@ -1,4 +1,4 @@
-﻿namespace MessagesTrader;
+﻿namespace MTrading;
 
 public class MessagesDispatcher : IMessagesDispatcher
 {

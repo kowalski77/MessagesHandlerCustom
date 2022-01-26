@@ -11,7 +11,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessagesTrader.Domain", "Me
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessagesTrader.Infrastructure", "MessagesTrader.Infrastructure\MessagesTrader.Infrastructure.csproj", "{77F89D1D-DBB3-4938-B4B8-D15EF30B6D21}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessagesTrader", "MessagesTrader\MessagesTrader.csproj", "{0F866962-C007-4612-A101-C99464766660}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MTrading", "MTrading\MTrading.csproj", "{0F866962-C007-4612-A101-C99464766660}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestHarness", "TestHarness", "{43FF6CE6-C68D-4AED-A4FC-64B1DAD431A9}"
 EndProject

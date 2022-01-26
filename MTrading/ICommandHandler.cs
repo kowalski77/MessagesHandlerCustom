@@ -1,4 +1,4 @@
-﻿namespace MessagesTrader;
+﻿namespace MTrading;
 
 public interface ICommandHandler<in T> where T : ICommand
 {

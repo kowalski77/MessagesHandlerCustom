@@ -1,11 +1,11 @@
 ﻿using BenchmarkDotNet.Attributes;
 using MediatR;
-using MessagesHandlerCustom.PerformanceTests.Handlers;
-using MessagesHandlerCustom.PerformanceTests.Support;
-using MessagesTrader;
+using MessagesTrader.PerformanceTests.Handlers;
+using MessagesTrader.PerformanceTests.Support;
 using Microsoft.Extensions.DependencyInjection;
+using MTrading;
 
-namespace MessagesHandlerCustom.PerformanceTests;
+namespace MessagesTrader.PerformanceTests;
 
 [MemoryDiagnoser]
 public class HandlerBenchmark

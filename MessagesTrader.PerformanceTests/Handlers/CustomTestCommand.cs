@@ -1,6 +1,6 @@
-﻿using MessagesTrader;
+﻿using MTrading;
 
-namespace MessagesHandlerCustom.PerformanceTests.Handlers;
+namespace MessagesTrader.PerformanceTests.Handlers;
 
 public class CustomTestCommand : ICommand
 {

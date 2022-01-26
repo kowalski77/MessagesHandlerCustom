@@ -7,7 +7,7 @@
     </PropertyGroup>
 
     <ItemGroup>
-      <ProjectReference Include="..\MessagesTrader\MessagesTrader.csproj" />
+      <ProjectReference Include="..\MTrading\MTrading.csproj" />
     </ItemGroup>
 
 </Project>

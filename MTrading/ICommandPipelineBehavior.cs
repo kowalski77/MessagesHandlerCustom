@@ -1,4 +1,4 @@
-﻿namespace MessagesTrader;
+﻿namespace MTrading;
 
 public interface ICommandPipelineBehavior<in T> where T : ICommand
 {

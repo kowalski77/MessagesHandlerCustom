@@ -1,4 +1,6 @@
-﻿namespace MessagesTrader.Domain;
+﻿using MTrading;
+
+namespace MessagesTrader.Domain;
 
 public class EnrollStudentCommand : ICommand
 {

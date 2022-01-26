@@ -1,4 +1,4 @@
 ﻿using BenchmarkDotNet.Running;
-using MessagesHandlerCustom.PerformanceTests;
+using MessagesTrader.PerformanceTests;
 
 var summary = BenchmarkRunner.Run<HandlerBenchmark>();

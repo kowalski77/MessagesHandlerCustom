@@ -1,4 +1,5 @@
 ﻿using MessagesTrader.Domain;
+using MTrading;
 
 namespace MessagesTrader.App;
 

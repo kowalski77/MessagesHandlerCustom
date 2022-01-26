@@ -3,6 +3,7 @@ using MessagesTrader.App;
 using MessagesTrader.Application;
 using MessagesTrader.Domain;
 using MessagesTrader.Infrastructure;
+using MTrading;
 
 IServiceProvider? serviceProvider;
 

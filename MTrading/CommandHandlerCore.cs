@@ -1,6 +1,6 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
 
-namespace MessagesTrader;
+namespace MTrading;
 
 public sealed class CommandHandlerCore
 {

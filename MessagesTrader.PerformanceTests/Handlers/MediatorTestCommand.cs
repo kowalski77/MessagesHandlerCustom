@@ -1,7 +1,7 @@
 ﻿using MediatR;
-using MessagesTrader;
+using MTrading;
 
-namespace MessagesHandlerCustom.PerformanceTests.Handlers;
+namespace MessagesTrader.PerformanceTests.Handlers;
 
 public class MediatorTestCommand : IRequest<Result>
 {

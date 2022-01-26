@@ -1,8 +1,8 @@
 ﻿using MediatR;
-using MessagesHandlerCustom.PerformanceTests.Support;
-using MessagesTrader;
+using MessagesTrader.PerformanceTests.Support;
+using MTrading;
 
-namespace MessagesHandlerCustom.PerformanceTests.Handlers;
+namespace MessagesTrader.PerformanceTests.Handlers;
 
 public class MediatorTestCommandHandler : IRequestHandler<MediatorTestCommand, Result>
 {

@@ -1,5 +1,5 @@
 ﻿
-namespace MessagesHandlerCustom.PerformanceTests.Support;
+namespace MessagesTrader.PerformanceTests.Support;
 
 public interface IProductRepository
 {
