@@ -5,18 +5,26 @@ namespace MessagesTrader.App;
 
 public class Endpoints
 {
-    private readonly IMessageTrader messagesDispatcher;
+    private readonly IMessageTrader messageTrader;
 
-    public Endpoints(IMessageTrader messagesDispatcher)
+    public Endpoints(IMessageTrader messageTrader)
     {
-        this.messagesDispatcher = messagesDispatcher ?? throw new ArgumentNullException(nameof(messagesDispatcher));
+        this.messageTrader = messageTrader ?? throw new ArgumentNullException(nameof(messageTrader));
     }
 
     public async Task EnrollStudentAsync(EnrollStudentDto enrollStudentDto)
     {
         var command = new EnrollStudentCommand(enrollStudentDto.StudentId, enrollStudentDto.CourseId);
-        var result = await this.messagesDispatcher.DispatchAsync(command);
+        var result = await this.messageTrader.SendAsync(command);
 
         Console.WriteLine($"Success: {result.Success} - {result.Message}");
+    }
+
+    public async Task GetStudentById(Guid id)
+    {
+        var query = new GetStudentNameByIdQuery(id);
+        var result = await this.messageTrader.QueryAsync(query);
+
+        Console.WriteLine($"Query result: {result}");
     }
 }

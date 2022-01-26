@@ -47,7 +47,7 @@ public class HandlerBenchmark
         using var scope = this.serviceProvider!.CreateScope();
         var messagesDispatcher = scope.ServiceProvider.GetRequiredService<IMessageTrader>();
 
-        var result = await messagesDispatcher.DispatchAsync(this.customTestCommand);
+        var result = await messagesDispatcher.SendAsync(this.customTestCommand);
 
         return result;
     }
@@ -78,7 +78,7 @@ public class HandlerBenchmark
         services.AddScoped<IRequestHandler<MediatorTestCommand, Result>, MediatorTestCommandHandler>();
 
         // Custom Dispatcher
-        services.AddMessagesDispatcherFromAssembly<MediatorTestCommandHandler>();
+        services.AddMTradingFromAssembly<MediatorTestCommandHandler>();
 
         this.serviceProvider = services.BuildServiceProvider(true);
     }

@@ -1,5 +1,4 @@
-﻿using MessagesTrader;
-using MessagesTrader.App;
+﻿using MessagesTrader.App;
 using MessagesTrader.Application;
 using MessagesTrader.Domain;
 using MessagesTrader.Infrastructure;
@@ -21,7 +20,12 @@ using (var scope = serviceProvider!.CreateScope())
         CourseId = Guid.NewGuid(),
         StudentId = Guid.NewGuid()
     };
+
+    Console.WriteLine("Command");
     await startup.EnrollStudentAsync(enrollStudentDto);
+
+    Console.WriteLine("Query");
+    await startup.GetStudentById(Guid.NewGuid());
 }
 
 Console.WriteLine("Press any key to exit...");
@@ -33,7 +37,7 @@ void ConfigureServices()
 {
     var services = new ServiceCollection();
 
-    services.AddMessagesDispatcherFromAssembly<EnrollStudentCommandHandler>();
+    services.AddMTradingFromAssembly<EnrollStudentCommandHandler>();
     services.AddScoped<IStudentRepository, StudentRepository>();
     services.AddScoped<ICourseRepository, CourseRepository>();
     services.AddScoped<Endpoints>();

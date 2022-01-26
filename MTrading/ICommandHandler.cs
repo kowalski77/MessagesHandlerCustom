@@ -1,6 +1,6 @@
 ﻿namespace MTrading;
 
-public interface ICommandHandler<in T> where T : ICommand
+public interface ICommandHandler<in TCommand> where TCommand : ICommand
 {
-    Task<Result> Handle(T command);
+    Task<Result> Handle(TCommand command);
 }
