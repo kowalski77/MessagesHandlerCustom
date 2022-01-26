@@ -1,10 +1,10 @@
 ﻿namespace MTrading;
 
-public class MessagesDispatcher : IMessagesDispatcher
+public class MessageTrader : IMessageTrader
 {
     private readonly IServiceProvider serviceProvider;
 
-    public MessagesDispatcher(IServiceProvider serviceProvider)
+    public MessageTrader(IServiceProvider serviceProvider)
     {
         this.serviceProvider = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));
     }

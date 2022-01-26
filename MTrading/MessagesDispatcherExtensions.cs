@@ -12,7 +12,7 @@ public static class MessagesDispatcherExtensions
 
         services.RegisterDispatchersFromAssembly(typeof(T).Assembly);
 
-        services.AddScoped<IMessagesDispatcher, MessagesDispatcher>();
+        services.AddScoped<IMessageTrader, MessageTrader>();
 
         return services;
     }
