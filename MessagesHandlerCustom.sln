@@ -3,15 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.0.31912.275
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessagesHandlerCustom.App", "MessagesHandlerCustom.App\MessagesHandlerCustom.App.csproj", "{7799A9B0-FA17-4C41-9952-E9C26F16FCA5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessagesTrader.App", "MessagesTrader.App\MessagesTrader.App.csproj", "{7799A9B0-FA17-4C41-9952-E9C26F16FCA5}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessagesHandlerCustom.Application", "MessagesHandlerCustom.Application\MessagesHandlerCustom.Application.csproj", "{BFB4CDDE-7A19-4964-B08B-D215C2246946}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessagesTrader.Application", "MessagesTrader.Application\MessagesTrader.Application.csproj", "{BFB4CDDE-7A19-4964-B08B-D215C2246946}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessagesHandlerCustom.Domain", "MessagesHandlerCustom.Domain\MessagesHandlerCustom.Domain.csproj", "{FDBA7432-E92D-4D1B-8A0F-51951BB9C031}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessagesTrader.Domain", "MessagesTrader.Domain\MessagesTrader.Domain.csproj", "{FDBA7432-E92D-4D1B-8A0F-51951BB9C031}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessagesHandlerCustom.Infrastructure", "MessagesHandlerCustom.Infrastructure\MessagesHandlerCustom.Infrastructure.csproj", "{77F89D1D-DBB3-4938-B4B8-D15EF30B6D21}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessagesTrader.Infrastructure", "MessagesTrader.Infrastructure\MessagesTrader.Infrastructure.csproj", "{77F89D1D-DBB3-4938-B4B8-D15EF30B6D21}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessagesHandlerCustom.Utils", "MessagesHandlerCustom.Utils\MessagesHandlerCustom.Utils.csproj", "{0F866962-C007-4612-A101-C99464766660}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessagesTrader", "MessagesTrader\MessagesTrader.csproj", "{0F866962-C007-4612-A101-C99464766660}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "TestHarness", "TestHarness", "{43FF6CE6-C68D-4AED-A4FC-64B1DAD431A9}"
 EndProject
@@ -19,7 +19,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Lib", "Lib", "{2B4CBC82-1BB
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{F7CFD562-6C29-45C5-8672-C18F58F56C86}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MessagesHandlerCustom.PerformanceTests", "MessagesHandlerCustom.PerformanceTests\MessagesHandlerCustom.PerformanceTests.csproj", "{E1BC0090-6C7A-4FBD-A5B9-9E242B94A18E}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "MessagesTrader.PerformanceTests", "MessagesTrader.PerformanceTests\MessagesTrader.PerformanceTests.csproj", "{E1BC0090-6C7A-4FBD-A5B9-9E242B94A18E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
