@@ -23,8 +23,13 @@ public class MessageTrader : IMessageTrader
     {
         ArgumentNullException.ThrowIfNull(query);
 
-        var handler = this.serviceProvider.GetRequiredService<IQueryHandler<IQuery<TResult>, TResult>>();
+        var type = typeof(IQueryHandler<,>);
+        Type[] typeArgs = { query.GetType(), typeof(TResult) };
+        var handlerType = type.MakeGenericType(typeArgs);
 
-        return await handler.Handle(query).ConfigureAwait(false);
+        var handler = (IQueryHandler<IQuery<TResult>, TResult>)this.serviceProvider.GetRequiredService(handlerType);
+        var result = await handler.Handle(query).ConfigureAwait(false);
+
+        return result;
     }
 }
