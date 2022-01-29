@@ -15,7 +15,7 @@ public class Endpoints
     public async Task EnrollStudentAsync(EnrollStudentDto enrollStudentDto)
     {
         var command = new EnrollStudentCommand(enrollStudentDto.StudentId, enrollStudentDto.CourseId);
-        var result = await this.messageTrader.SendAsync(command);
+        var result = await this.messageTrader.ExecuteAsync(command);
 
         Console.WriteLine($"Success: {result.Success} - {result.Message}");
     }

@@ -1,5 +1,5 @@
 ﻿namespace MTrading;
 
-public interface ICommand
+public interface ICommand : IRequest
 {
 }

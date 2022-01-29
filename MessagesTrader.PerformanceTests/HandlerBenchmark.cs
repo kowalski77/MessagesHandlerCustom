@@ -47,7 +47,7 @@ public class HandlerBenchmark
         using var scope = this.serviceProvider!.CreateScope();
         var messagesDispatcher = scope.ServiceProvider.GetRequiredService<IMessageTrader>();
 
-        var result = await messagesDispatcher.SendAsync(this.customTestCommand);
+        var result = await messagesDispatcher.ExecuteAsync(this.customTestCommand);
 
         return result;
     }
