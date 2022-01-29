@@ -2,7 +2,7 @@
 
 namespace MTrading;
 
-internal sealed class QueryResultHandler<TQuery, TResult> : RequestHandlerBase<TResult>
+internal sealed class QueryResultHandler<TQuery, TResult> : RequestHandlerWrapper<TResult>
     where TQuery : IQuery<TResult>
 {
     public override async Task<TResult> Handle(IRequest request, IServiceProvider serviceProvider)

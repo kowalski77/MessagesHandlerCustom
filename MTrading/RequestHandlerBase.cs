@@ -1,6 +1,5 @@
 ﻿namespace MTrading;
 
-internal abstract class RequestHandlerBase<TResult>
+internal abstract class RequestHandlerBase
 {
-    public abstract Task<TResult> Handle(IRequest request, IServiceProvider serviceProvider);
 }
