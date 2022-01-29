@@ -9,12 +9,18 @@ public class MessageTrader : IMessageTrader
         this.serviceProvider = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));
     }
 
-    public Task<Result> ExecuteAsync<TCommand>(TCommand command)
+    public async Task<Result> ExecuteAsync<TCommand>(TCommand command)
         where TCommand : ICommand
     {
         ArgumentNullException.ThrowIfNull(command);
 
-        return CommandHandlerCore.Handle(command, this.serviceProvider);
+        var commandType = command.GetType();
+        var requestHandler = (RequestHandlerBase<Result>)Activator.CreateInstance(typeof(CommandResultHandler<>)
+            .MakeGenericType(commandType))!;
+
+        var result = await requestHandler.Handle(command, this.serviceProvider).ConfigureAwait(false);
+
+        return result;
     }
 
     public async Task<TResult> QueryAsync<TResult>(IQuery<TResult> query)
@@ -22,9 +28,10 @@ public class MessageTrader : IMessageTrader
         ArgumentNullException.ThrowIfNull(query);
 
         var queryType = query.GetType();
-        var queryRequestHandler = (RequestHandlerBase<TResult>)Activator.CreateInstance(typeof(QueryResultHandler<,>)
+        var requestHandler = (RequestHandlerBase<TResult>)Activator.CreateInstance(typeof(QueryResultHandler<,>)
             .MakeGenericType(queryType, typeof(TResult)))!;
-        var result = await queryRequestHandler.Handle(query, this.serviceProvider).ConfigureAwait(false);
+
+        var result = await requestHandler.Handle(query, this.serviceProvider).ConfigureAwait(false);
 
         return result;
     }
