@@ -23,12 +23,9 @@ public class MessageTrader : IMessageTrader
     {
         ArgumentNullException.ThrowIfNull(query);
 
-        var type = typeof(IQueryHandler<,>);
-        Type[] typeArgs = { query.GetType(), typeof(TResult) };
-        var handlerType = type.MakeGenericType(typeArgs);
-
-        dynamic handler = this.serviceProvider.GetRequiredService(handlerType);
-        var result = await handler.Handle((dynamic)query).ConfigureAwait(false);
+        var queryType = query.GetType();
+        var queryRequestHandler = (QueryRequestHandlerBase<TResult>)Activator.CreateInstance(typeof(QueryResultHandler<,>).MakeGenericType(queryType, typeof(TResult)))!;
+        var result = await queryRequestHandler.Handle(query, this.serviceProvider).ConfigureAwait(false);
 
         return result;
     }
