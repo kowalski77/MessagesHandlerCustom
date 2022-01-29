@@ -12,6 +12,9 @@ public class QueryResultHandler<TQuery, TResult> : QueryRequestHandlerBase<TResu
 {
     public override async Task<TResult> Handle(IQuery<TResult> query, IServiceProvider serviceProvider)
     {
+        ArgumentNullException.ThrowIfNull(query);
+        ArgumentNullException.ThrowIfNull(serviceProvider);
+
         var handler = serviceProvider.GetRequiredService<IQueryHandler<TQuery, TResult>>();
 
         return await handler.Handle((TQuery)query).ConfigureAwait(false);

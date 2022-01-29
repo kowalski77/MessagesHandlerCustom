@@ -1,12 +1,16 @@
-﻿using Microsoft.Extensions.DependencyInjection;
+﻿using System.Diagnostics.CodeAnalysis;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace MTrading;
 
 public sealed class CommandHandlerCore
 {
-    public static Task<Result> Handle<TCommand>(TCommand command, IServiceProvider serviceProvider)
+    public static Task<Result> Handle<TCommand>([DisallowNull] TCommand command, IServiceProvider serviceProvider)
         where TCommand : ICommand
     {
+        ArgumentNullException.ThrowIfNull(command);
+        ArgumentNullException.ThrowIfNull(serviceProvider);
+
         Task<Result> Handler() => serviceProvider.GetRequiredService<ICommandHandler<TCommand>>().Handle(command);
 
         var handlers = serviceProvider.GetServices<ICommandPipelineBehavior<TCommand>>()

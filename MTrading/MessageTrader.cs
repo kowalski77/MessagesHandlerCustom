@@ -1,6 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-
-namespace MTrading;
+﻿namespace MTrading;
 
 public class MessageTrader : IMessageTrader
 {
