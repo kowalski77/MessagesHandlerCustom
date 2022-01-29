@@ -12,11 +12,23 @@ public class MessageTrader : IMessageTrader
         this.serviceProvider = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));
     }
 
-    public async Task<Result> ExecuteAsync<TCommand>(TCommand command)
+    public Task<Result> ExecuteAsync<TCommand>(TCommand command)
         where TCommand : ICommand
     {
         ArgumentNullException.ThrowIfNull(command);
 
+        return this.ExecuteInternalAsync(command);
+    }
+
+    public Task<TResult> QueryAsync<TResult>(IQuery<TResult> query)
+    {
+        ArgumentNullException.ThrowIfNull(query);
+
+        return this.QueryInternalAsync(query);
+    }
+
+    private async Task<Result> ExecuteInternalAsync<TCommand>(TCommand command) where TCommand : ICommand
+    {
         var commandType = command.GetType();
         var requestHandler = (RequestHandlerWrapper<Result>)RequestHandlers.GetOrAdd(commandType,
             static t => (RequestHandlerBase)Activator.CreateInstance(typeof(CommandResultHandler<>).MakeGenericType(t))!);
@@ -26,10 +38,8 @@ public class MessageTrader : IMessageTrader
         return result;
     }
 
-    public async Task<TResult> QueryAsync<TResult>(IQuery<TResult> query)
+    private async Task<TResult> QueryInternalAsync<TResult>(IQuery<TResult> query)
     {
-        ArgumentNullException.ThrowIfNull(query);
-
         var queryType = query.GetType();
         var requestHandler = (RequestHandlerWrapper<TResult>)RequestHandlers.GetOrAdd(queryType,
             static t => (RequestHandlerBase)Activator.CreateInstance(typeof(QueryResultHandler<,>).MakeGenericType(t, typeof(TResult)))!);
