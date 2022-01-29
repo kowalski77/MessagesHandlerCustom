@@ -7,8 +7,12 @@ internal sealed class CommandResultHandler<TCommand> : RequestHandlerWrapper<Res
 {
     public override async Task<Result> Handle(IRequest request, IServiceProvider serviceProvider)
     {
-        var handler = serviceProvider.GetRequiredService<ICommandHandler<TCommand>>();
+        Task<Result> Handler() => serviceProvider.GetRequiredService<ICommandHandler<TCommand>>().Handle((TCommand)request);
 
-        return await handler.Handle((TCommand)request).ConfigureAwait(false);
+        var handlers = serviceProvider.GetServices<ICommandPipelineBehavior<TCommand>>()
+            .Reverse()
+            .Aggregate((CommandPipelineHandler)Handler, (next, pipeline) => () => pipeline.Handle((TCommand)request, next))();
+
+        return await handlers.ConfigureAwait(false);
     }
 }

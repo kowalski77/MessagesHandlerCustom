@@ -1,6 +1,7 @@
 ﻿namespace MTrading;
 
-public interface ICommandPipelineBehavior<in T> where T : ICommand
+public interface ICommandPipelineBehavior<in TCommand> 
+    where TCommand : ICommand
 {
-    Task<Result> Handle(T command, CommandPipelineHandler nextHandler);
+    Task<Result> Handle(TCommand command, CommandPipelineHandler nextHandler);
 }
