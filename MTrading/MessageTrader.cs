@@ -27,8 +27,8 @@ public class MessageTrader : IMessageTrader
         Type[] typeArgs = { query.GetType(), typeof(TResult) };
         var handlerType = type.MakeGenericType(typeArgs);
 
-        var handler = (IQueryHandler<IQuery<TResult>, TResult>)this.serviceProvider.GetRequiredService(handlerType);
-        var result = await handler.Handle(query).ConfigureAwait(false);
+        dynamic handler = this.serviceProvider.GetRequiredService(handlerType);
+        var result = await handler.Handle((dynamic)query).ConfigureAwait(false);
 
         return result;
     }
