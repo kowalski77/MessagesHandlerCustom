@@ -1,7 +1,7 @@
 ﻿namespace MTrading;
 
-public interface IQueryPipelineBehavior<in TRequest, TResult> 
-    where TRequest : IQuery<TResult>
+public interface IQueryPipelineBehavior<in TQuery, TResult> 
+    where TQuery : IQuery<TResult>
 {
-    Task<TResult> Handle(TRequest request, QueryPipelineHandler<TResult> nextHandler);
+    Task<TResult> Handle(TQuery query, QueryPipelineHandler<TResult> nextHandler);
 }

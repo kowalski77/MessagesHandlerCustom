@@ -38,6 +38,9 @@ void ConfigureServices()
     var services = new ServiceCollection();
 
     services.AddMessagesDispatcherFromAssembly<EnrollStudentCommandHandler>();
+    services.AddScoped(typeof(ICommandPipelineBehavior<>), typeof(DecoratorCommandBehavior<>));
+    services.AddScoped(typeof(IQueryPipelineBehavior<,>), typeof(DecoratorQueryBehavior<,>));
+
     services.AddScoped<IStudentRepository, StudentRepository>();
     services.AddScoped<ICourseRepository, CourseRepository>();
     services.AddScoped<Endpoints>();
