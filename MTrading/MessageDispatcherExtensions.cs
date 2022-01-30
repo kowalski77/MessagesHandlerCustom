@@ -3,7 +3,7 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace MTrading;
 
-public static class MessageTraderExtensions
+public static class MessageDispatcherExtensions
 {
     public static IServiceCollection AddMTradingFromAssembly<T>(
         this IServiceCollection services) where T : class
