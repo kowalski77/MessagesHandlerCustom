@@ -31,7 +31,7 @@ internal sealed class MessagesDispatcher : IMessagesDispatcher
     {
         var commandType = command.GetType();
         var requestHandler = (RequestHandler<Result>)RequestHandlers.GetOrAdd(commandType,
-            static t => (RequestHandlerBase)Activator.CreateInstance(typeof(CommandResultHandler<>).MakeGenericType(t))!);
+            static t => (RequestHandlerBase)Activator.CreateInstance(typeof(CommandHandler<>).MakeGenericType(t))!);
 
         var result = await requestHandler.Handle(command, this.serviceProvider).ConfigureAwait(false);
 
@@ -42,7 +42,7 @@ internal sealed class MessagesDispatcher : IMessagesDispatcher
     {
         var queryType = query.GetType();
         var requestHandler = (RequestHandler<TResult>)RequestHandlers.GetOrAdd(queryType,
-            static t => (RequestHandlerBase)Activator.CreateInstance(typeof(QueryResultHandler<,>).MakeGenericType(t, typeof(TResult)))!);
+            static t => (RequestHandlerBase)Activator.CreateInstance(typeof(QueryHandler<,>).MakeGenericType(t, typeof(TResult)))!);
 
         var result = await requestHandler.Handle(query, this.serviceProvider).ConfigureAwait(false);
 

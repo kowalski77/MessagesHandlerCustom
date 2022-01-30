@@ -2,7 +2,7 @@
 
 namespace MTrading;
 
-internal sealed class CommandResultHandler<TCommand> : RequestHandler<Result>
+internal sealed class CommandHandler<TCommand> : RequestHandler<Result>
     where TCommand : ICommand
 {
     public override async Task<Result> Handle(IRequest request, IServiceProvider serviceProvider)
