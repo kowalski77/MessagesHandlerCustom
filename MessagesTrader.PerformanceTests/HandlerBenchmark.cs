@@ -78,7 +78,7 @@ public class HandlerBenchmark
         services.AddScoped<IRequestHandler<MediatorTestCommand, Result>, MediatorTestCommandHandler>();
 
         // Custom Dispatcher
-        services.AddMTradingFromAssembly<MediatorTestCommandHandler>();
+        services.AddMessagesDispatcherFromAssembly<MediatorTestCommandHandler>();
 
         this.serviceProvider = services.BuildServiceProvider(true);
     }

@@ -3,9 +3,9 @@ using Microsoft.Extensions.DependencyInjection;
 
 namespace MTrading;
 
-public static class MessageDispatcherExtensions
+public static class MessagesDispatcherExtensions
 {
-    public static IServiceCollection AddMTradingFromAssembly<T>(
+    public static IServiceCollection AddMessagesDispatcherFromAssembly<T>(
         this IServiceCollection services) where T : class
     {
         ArgumentNullException.ThrowIfNull(services);

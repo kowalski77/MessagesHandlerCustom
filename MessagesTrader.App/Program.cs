@@ -37,7 +37,7 @@ void ConfigureServices()
 {
     var services = new ServiceCollection();
 
-    services.AddMTradingFromAssembly<EnrollStudentCommandHandler>();
+    services.AddMessagesDispatcherFromAssembly<EnrollStudentCommandHandler>();
     services.AddScoped<IStudentRepository, StudentRepository>();
     services.AddScoped<ICourseRepository, CourseRepository>();
     services.AddScoped<Endpoints>();
