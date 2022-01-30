@@ -2,7 +2,7 @@
 
 namespace MTrading;
 
-public class MessagesDispatcher : IMessagesDispatcher
+internal sealed class MessagesDispatcher : IMessagesDispatcher
 {
     private static readonly ConcurrentDictionary<Type, RequestHandlerBase> RequestHandlers = new();
     private readonly IServiceProvider serviceProvider;
@@ -30,7 +30,7 @@ public class MessagesDispatcher : IMessagesDispatcher
     private async Task<Result> ExecuteInternalAsync<TCommand>(TCommand command) where TCommand : ICommand
     {
         var commandType = command.GetType();
-        var requestHandler = (RequestHandlerWrapper<Result>)RequestHandlers.GetOrAdd(commandType,
+        var requestHandler = (RequestHandler<Result>)RequestHandlers.GetOrAdd(commandType,
             static t => (RequestHandlerBase)Activator.CreateInstance(typeof(CommandResultHandler<>).MakeGenericType(t))!);
 
         var result = await requestHandler.Handle(command, this.serviceProvider).ConfigureAwait(false);
@@ -41,7 +41,7 @@ public class MessagesDispatcher : IMessagesDispatcher
     private async Task<TResult> QueryInternalAsync<TResult>(IQuery<TResult> query)
     {
         var queryType = query.GetType();
-        var requestHandler = (RequestHandlerWrapper<TResult>)RequestHandlers.GetOrAdd(queryType,
+        var requestHandler = (RequestHandler<TResult>)RequestHandlers.GetOrAdd(queryType,
             static t => (RequestHandlerBase)Activator.CreateInstance(typeof(QueryResultHandler<,>).MakeGenericType(t, typeof(TResult)))!);
 
         var result = await requestHandler.Handle(query, this.serviceProvider).ConfigureAwait(false);
