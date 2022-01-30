@@ -12,7 +12,7 @@ public static class MessageTraderExtensions
 
         services.RegisterTradersFromAssembly(typeof(T).Assembly);
 
-        services.AddScoped<IMessageTrader, MessageTrader>();
+        services.AddScoped<IMessagesDispatcher, MessagesDispatcher>();
 
         return services;
     }

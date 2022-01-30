@@ -1,6 +1,6 @@
 ﻿namespace MTrading;
 
-public interface IMessageTrader
+public interface IMessagesDispatcher
 {
     Task<Result> ExecuteAsync<TCommand>(TCommand command)
         where TCommand : ICommand;

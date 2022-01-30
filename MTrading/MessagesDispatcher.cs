@@ -2,12 +2,12 @@
 
 namespace MTrading;
 
-public class MessageTrader : IMessageTrader
+public class MessagesDispatcher : IMessagesDispatcher
 {
     private static readonly ConcurrentDictionary<Type, RequestHandlerBase> RequestHandlers = new();
     private readonly IServiceProvider serviceProvider;
 
-    public MessageTrader(IServiceProvider serviceProvider)
+    public MessagesDispatcher(IServiceProvider serviceProvider)
     {
         this.serviceProvider = serviceProvider ?? throw new ArgumentNullException(nameof(serviceProvider));
     }

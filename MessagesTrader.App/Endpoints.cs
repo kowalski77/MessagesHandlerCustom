@@ -5,9 +5,9 @@ namespace MessagesTrader.App;
 
 public class Endpoints
 {
-    private readonly IMessageTrader messageTrader;
+    private readonly IMessagesDispatcher messageTrader;
 
-    public Endpoints(IMessageTrader messageTrader)
+    public Endpoints(IMessagesDispatcher messageTrader)
     {
         this.messageTrader = messageTrader ?? throw new ArgumentNullException(nameof(messageTrader));
     }
