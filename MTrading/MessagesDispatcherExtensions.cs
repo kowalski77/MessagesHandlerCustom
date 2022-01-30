@@ -10,14 +10,14 @@ public static class MessagesDispatcherExtensions
     {
         ArgumentNullException.ThrowIfNull(services);
 
-        services.RegisterTradersFromAssembly(typeof(T).Assembly);
+        services.RegisterDispatchersFromAssembly(typeof(T).Assembly);
 
         services.AddScoped<IMessagesDispatcher, MessagesDispatcher>();
 
         return services;
     }
 
-    private static IServiceCollection RegisterTradersFromAssembly(this IServiceCollection services, Assembly assembly)
+    private static IServiceCollection RegisterDispatchersFromAssembly(this IServiceCollection services, Assembly assembly)
     {
         var handlerImplementations = assembly.GetTypes()
             .Where(p => p.GetInterfaces().Any(i => i.IsGenericType &&
